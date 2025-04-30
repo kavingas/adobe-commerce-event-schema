@@ -1,0 +1,97 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "shopping-cart",
+    "format": "jsonschema",
+    "version": "3-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "cartId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier for the cart"
+    },
+    "itemsCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of items in the cart"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "basePrice": {
+            "type": "number",
+            "description": "Base price of the product"
+          },
+          "offerPrice": {
+            "type": "number",
+            "description": "Discounted price offered"
+          },
+          "qty": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Quantity of this product in the cart"
+          },
+          "cartItemId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Cart item unique ID"
+          },
+          "mainImageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to product image"
+          },
+          "productName": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Name of the product"
+          },
+          "productSku": {
+            "type": "string",
+            "minLength": 1,
+            "description": "SKU of the product"
+          }
+        },
+        "required": ["basePrice", "offerPrice", "qty", "cartItemId", "mainImageUrl", "productName", "productSku"],
+        "additionalProperties": false
+      },
+      "description": "List of items in the cart"
+    },
+    "possibleOnepageCheckout": {
+      "type": "boolean",
+      "description": "Flag indicating if one-page checkout is available"
+    },
+    "subtotalExcludingTax": {
+      "type": "number",
+      "description": "Subtotal without tax"
+    },
+    "subtotalIncludingTax": {
+      "type": "number",
+      "description": "Subtotal including tax"
+    },
+    "giftMessageSelected": {
+      "type": "boolean",
+      "description": "Whether a gift message is selected"
+    },
+    "giftWrappingSelected": {
+      "type": "boolean",
+      "description": "Whether gift wrapping is selected"
+    }
+  },
+  "required": [
+    "cartId",
+    "itemsCount",
+    "items",
+    "possibleOnepageCheckout",
+    "subtotalExcludingTax",
+    "subtotalIncludingTax",
+    "giftMessageSelected",
+    "giftWrappingSelected"
+  ],
+  "additionalProperties": false
+}
