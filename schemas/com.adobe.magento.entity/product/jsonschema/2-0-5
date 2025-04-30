@@ -63,6 +63,10 @@
           "type": "number",
           "description": "The regular price of the product"
         },
+        "specialPrice": {
+          "type": "number",
+          "description": "The special price of the product"
+        },
         "currencyCode": {
           "type": ["string", "null"],
           "description": "The currency code for the price, e.g., 'USD', or null if unspecified"
