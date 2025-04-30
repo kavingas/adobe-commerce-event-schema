@@ -9,8 +9,7 @@
   "type": "object",
   "properties": {
     "version": {
-      "type": "string",
-      "enum": ["unspecified"],
+      "type": ["string", "null"],
       "description": "The version of the Experience Platform Connector Extension (currently only 'unspecified')"
     },
     "setupComplete": {
