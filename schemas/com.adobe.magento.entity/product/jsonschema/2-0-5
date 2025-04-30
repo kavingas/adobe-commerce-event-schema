@@ -33,6 +33,11 @@
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
       "description": "Timestamp when the product was last updated"
     },
+    "specialFromDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
+      "description": "Timestamp when the product was last updated"
+    },
     "categories": {
       "type": "array",
       "items": {
@@ -80,8 +85,6 @@
     "name",
     "sku",
     "topLevelSku",
-    "createdAt",
-    "updatedAt",
     "categories",
     "productType",
     "canonicalUrl",
