@@ -71,6 +71,8 @@ Each schema follows the pattern:
    ```
    iglu:com.company/custom_event/jsonschema/1-0-0
    ```
+[Schema URL](https://kavingas.github.io/adobe-commerce-event-schema/schemas/)
+
 
 ## ✅ Best Practices
 
