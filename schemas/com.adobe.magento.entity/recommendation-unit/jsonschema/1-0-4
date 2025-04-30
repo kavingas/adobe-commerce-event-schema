@@ -1,0 +1,62 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "recommendation-unit",
+    "format": "jsonschema",
+    "version": "1-0-4"
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name of the recommendation unit"
+    },
+    "unitId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the recommendation unit"
+    },
+    "itemsCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of recommended items returned"
+    },
+    "backupsCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of backup recommendations shown if primary ones fail"
+    },
+    "configType": {
+      "type": "string",
+      "enum": ["preconfigured", "custom"],
+      "description": "Type of configuration used"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["api", "local", "cache"],
+      "description": "Source of recommendation content"
+    },
+    "recType": {
+      "type": "string",
+      "enum": ["recently-viewed", "related", "upsell", "cross-sell", "personalized"],
+      "description": "Type of recommendation strategy"
+    },
+    "placement": {
+      "type": "string",
+      "description": "Where the unit is placed in the page layout, e.g., 'below-main-content'"
+    }
+  },
+  "required": [
+    "name",
+    "unitId",
+    "itemsCount",
+    "backupsCount",
+    "configType",
+    "source",
+    "recType",
+    "placement"
+  ],
+  "additionalProperties": false
+}

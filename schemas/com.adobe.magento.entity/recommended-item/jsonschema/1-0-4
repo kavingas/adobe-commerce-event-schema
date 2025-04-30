@@ -1,0 +1,89 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "recommended-item",
+    "format": "jsonschema",
+    "version": "1-0-4"
+  },
+  "type": "object",
+  "properties": {
+    "unitId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the recommendation unit this item belongs to"
+    },
+    "serviceRank": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Ranking provided by the recommendation service"
+    },
+    "displayRank": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Position in which the item is displayed"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Product name"
+    },
+    "sku": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Product SKU"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "Product URL (relative or absolute)"
+    },
+    "imageUrl": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "Product image URL (relative or absolute)"
+    },
+    "prices": {
+      "type": "object",
+      "properties": {
+        "maximum": {
+          "type": "object",
+          "properties": {
+            "final": { "type": "number" },
+            "regular": { "type": "number" }
+          },
+          "required": ["final", "regular"],
+          "additionalProperties": false
+        },
+        "minimum": {
+          "type": "object",
+          "properties": {
+            "final": { "type": "number" },
+            "regular": { "type": "number" }
+          },
+          "required": ["final", "regular"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["maximum", "minimum"],
+      "additionalProperties": false
+    },
+    "currencyCode": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Currency code (e.g., USD, EUR)"
+    }
+  },
+  "required": [
+    "unitId",
+    "serviceRank",
+    "displayRank",
+    "name",
+    "sku",
+    "url",
+    "imageUrl",
+    "prices",
+    "currencyCode"
+  ],
+  "additionalProperties": false
+}
