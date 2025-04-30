@@ -1,0 +1,91 @@
+{
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "storefront-instance",
+      "format": "jsonschema",
+      "version": "3-0-2"
+    },
+    "type": "object",
+    "properties": {
+      "baseCurrencyCode": {
+        "type": "string",
+        "minLength": 1
+      },
+      "environment": {
+        "type": "string",
+        "minLength": 1
+      },
+      "environmentId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "storeCode": {
+        "type": "string",
+        "minLength": 1
+      },
+      "storeId": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "storeName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "storeUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "storeViewCode": {
+        "type": "string",
+        "minLength": 1
+      },
+      "storeViewCurrencyCode": {
+        "type": "string",
+        "minLength": 1
+      },
+      "storeViewId": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "storeViewName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "websiteCode": {
+        "type": "string",
+        "minLength": 1
+      },
+      "websiteName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "websiteId": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "storefrontTemplate": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "baseCurrencyCode",
+      "environment",
+      "environmentId",
+      "storeCode",
+      "storeId",
+      "storeName",
+      "storeUrl",
+      "storeViewCode",
+      "storeViewCurrencyCode",
+      "storeViewId",
+      "storeViewName",
+      "websiteCode",
+      "websiteName",
+      "websiteId",
+      "storefrontTemplate"
+    ],
+    "additionalProperties": false
+  }
+  
