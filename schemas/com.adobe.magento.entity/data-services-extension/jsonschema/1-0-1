@@ -1,0 +1,19 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "data-services-extension",
+    "format": "jsonschema",
+    "version": "1-0-1"
+  },
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "The version of the Data Services Extension in SemVer format (e.g., 7.7.0)"
+    }
+  },
+  "required": ["version"],
+  "additionalProperties": false
+}
