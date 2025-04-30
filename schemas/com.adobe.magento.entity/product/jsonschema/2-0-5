@@ -55,6 +55,21 @@
       "type": "string",
       "format": "uri",
       "description": "The URL of the product's main image"
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "regularPrice": {
+          "type": "number",
+          "description": "The regular price of the product"
+        },
+        "currencyCode": {
+          "type": ["string", "null"],
+          "description": "The currency code for the price, e.g., 'USD', or null if unspecified"
+        }
+      },
+      "required": ["regularPrice"],
+      "additionalProperties": false
     }
   },
   "required": [
