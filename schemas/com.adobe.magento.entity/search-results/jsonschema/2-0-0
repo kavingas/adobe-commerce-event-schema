@@ -1,0 +1,110 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "search-results",
+    "format": "jsonschema",
+    "version": "2-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "searchUnitId": { "type": "string" },
+    "source": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "queryTypes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "searchRequestId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "query": { "type": "string" },
+    "filter": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "values": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "operator": { "type": "string" }
+        },
+        "required": ["name", "values", "operator"],
+        "additionalProperties": false
+      }
+    },
+    "sort": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "sku": { "type": "string" },
+          "url": { "type": "string", "format": "uri-reference" },
+          "imageUrl": { "type": "string", "format": "uri-reference" },
+          "price": { "type": "number" },
+          "rank": { "type": "integer" }
+        },
+        "required": ["name", "sku", "url", "price", "rank"],
+        "additionalProperties": false
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "suggestions": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "perPage": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "facets": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "productCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "categoryCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "suggestionCount": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "searchUnitId",
+    "searchRequestId",
+    "products",
+    "categories",
+    "suggestions",
+    "page",
+    "perPage",
+    "facets",
+    "productCount",
+    "categoryCount",
+    "suggestionCount"
+  ],
+  "additionalProperties": false
+}
