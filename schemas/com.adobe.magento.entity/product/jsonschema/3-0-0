@@ -1,0 +1,94 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "product",
+    "format": "jsonschema",
+    "version": "2-0-5"
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The name of the product"
+    },
+    "sku": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The SKU (Stock Keeping Unit) identifier for the product"
+    },
+    "topLevelSku": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The top-level SKU for the product, often the same as `sku` for simple products"
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
+      "description": "Timestamp when the product was created"
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
+      "description": "Timestamp when the product was last updated"
+    },
+    "specialFromDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$",
+      "description": "Timestamp when the product was last updated"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]+$"
+      },
+      "description": "A list of category IDs the product belongs to"
+    },
+    "productType": {
+      "type": "string",
+      "enum": ["configurable", "simple", "virtual", "bundle", "downloadable"],
+      "description": "The type of product"
+    },
+    "canonicalUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The canonical URL for the product page"
+    },
+    "mainImageUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL of the product's main image"
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "regularPrice": {
+          "type": "number",
+          "description": "The regular price of the product"
+        },
+        "specialPrice": {
+          "type": "number",
+          "description": "The special price of the product"
+        },
+        "currencyCode": {
+          "type": ["string", "null"],
+          "description": "The currency code for the price, e.g., 'USD', or null if unspecified"
+        }
+      },
+      "required": ["regularPrice"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "name",
+    "sku",
+    "topLevelSku",
+    "categories",
+    "productType",
+    "canonicalUrl",
+    "mainImageUrl"
+  ],
+  "additionalProperties": false
+}
